@@ -1,4 +1,4 @@
-[![<shironguyen>](https://circleci.com/gh/blackHaiDang/udacity-project4.svg?style=svg)](<https://app.circleci.com/pipelines/github/thanh20080kg/udacity-cdoe-project-4>)
+[![<shironguyen>](https://circleci.com/gh/thanh20080kg/udacity-cdoe-project-4.svg?style=svg)](<https://circleci.com/gh/thanh20080kg/udacity-cdoe-project-4>)
 
 ## Project Overview
 
