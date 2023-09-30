@@ -7,20 +7,11 @@
 # Create docker_path
 docker_path=shironguyen
 
-## Step 2:
-## Authenticate & tag
-#echo "Docker ID and Image: $dockerpath"
-#
-#docker login -u shironguyen
-#docker tag project4-ml-api $dockerpath:latest
-#
-## Step 3:
-## Push image to a docker repository
-#docker push $dockerpath:latest
-
+# Step 2:
+# Authenticate & tag
 echo "Docker ID and Image: $docker_path"
 echo "$MY_PASSWORD" | docker login --username $docker_path --password-stdin
-image_tagged=$(docker image list --filter=reference="$docker_path/project-ml" | grep 'project-ml' | xargs)
+image_tagged=$(docker image list --filter=reference="$docker_path/project4-ml" | grep 'project4-ml' | xargs)
 if [[ -n $image_tagged ]]; then
   echo "Image already tagged, remove the tagged image."
   name=$(echo "$image_tagged" | cut -f 1 -d " ")
@@ -28,12 +19,12 @@ if [[ -n $image_tagged ]]; then
   docker image remove --force "$name":"$tag"
 fi
 
-image_info=$(docker image list | grep 'project-ml' | xargs)
+image_info=$(docker image list | grep 'project4-ml' | xargs)
 image_name=$(echo "$image_info" | cut -f 1 -d " ")
 image_tag=$(echo "$image_info" | cut -f 2 -d " ")
 docker image tag "$image_name:$image_tag" "$docker_path/$image_name:$image_tag"
-docker image list --filter=reference="$docker_path/project-ml"
+docker image list --filter=reference="$docker_path/project4-ml"
 
 # Step 3:
 # Push image to a docker repository
-docker image push "$docker_path/project-ml:$image_tag"
+docker image push "$docker_path/project4-ml:$image_tag"
